@@ -3,14 +3,6 @@
     "name": "mohammeds-website",
     "version": "1.0.0",
     "description": "Mohammed's personal website",
-    "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
-    ],
     "scripts": {
         "dev": "vite",
         "build": "vite build",

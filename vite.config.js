@@ -3,17 +3,10 @@ const path = require('path');
 
 // Vite config for static site with SCSS and vendor libs
 module.exports = defineConfig({
-  root: process.cwd(),
   base: './',
   build: {
     outDir: 'dist',
-    assetsDir: '',
-    rollupOptions: {
-      input: path.resolve(process.cwd(), 'index.html')
-    }
-  },
-  optimizeDeps: {
-    force: true // Force dependency pre-bundling
+    assetsDir: ''
   },
   css: {
     devSourcemap: false, // Disable sourcemaps completely
@@ -25,8 +18,5 @@ module.exports = defineConfig({
         }
       }
     }
-  },
-  optimizeDeps: {
-    exclude: ['magnific-popup'] // Skip sourcemap warning for this package
   }
 });
