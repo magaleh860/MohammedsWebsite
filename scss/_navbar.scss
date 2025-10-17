@@ -6,13 +6,13 @@
 #mainNav {
   border-bottom: 1px solid color.scale($gray-900, $alpha: -90%);
   background-color: $white;
-  @include mix.sans-serif-font;
+  @include mix.serif-font;
   @include mix.transition-all;
   .navbar-brand {
     font-weight: 700;
     text-transform: uppercase;
     color: $primary;
-    @include mix.sans-serif-font;
+    @include mix.serif-font;
     &:focus,
     &:hover {
       color: color.scale($primary, $lightness: -1%);
