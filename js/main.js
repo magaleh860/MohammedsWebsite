@@ -25,3 +25,4 @@ import 'magnific-popup/dist/jquery.magnific-popup.js';
 
 // Import the site's behavior
 import './script.js';
+

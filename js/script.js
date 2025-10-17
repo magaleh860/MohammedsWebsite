@@ -11,6 +11,9 @@ import $ from 'jquery';
 // Ensure jQuery is available globally for plugins that expect window.jQuery / window.$
 window.jQuery = window.$ = $;
 
+import ScrollReveal from 'scrollreveal';
+
+window.ScrollReveal = ScrollReveal;
 (function($) {
   "use strict"; // Start of use strict
 
