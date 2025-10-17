@@ -1,29 +1,12 @@
 {
-    "title": "Creative",
-    "name": "startbootstrap-creative",
-    "version": "4.0.0-beta.2",
-    "description": "Creative is a stylish one page HTML theme for Bootstrap.",
-    "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
-    ],
-    "homepage": "https://startbootstrap.com/template-overviews/creative",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-creative/issues",
-        "email": "feedback@startbootstrap.com"
-    },
-    "license": "MIT",
-    "author": "Start Bootstrap",
-    "contributors": [
-        "David Miller (http://davidmiller.io/)"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-creative.git"
+    "title": "MohammedsWebsite",
+    "name": "mohammeds-website",
+    "version": "1.0.0",
+    "description": "Mohammed's personal website",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "dependencies": {
         "bootstrap": "^4.0.0-beta.2",
@@ -34,12 +17,8 @@
         "scrollreveal": "3.3.6"
     },
     "devDependencies": {
-        "browser-sync": "2.18.13",
-        "gulp": "^3.9.1",
-        "gulp-clean-css": "3.9.0",
-        "gulp-header": "1.8.9",
-        "gulp-rename": "^1.2.2",
-        "gulp-sass": "^3.1.0",
-        "gulp-uglify": "3.0.0"
+        "vite": "^5.0.0",
+        "@rollup/rollup-win32-x64-msvc": "^4.9.0",
+        "sass": "^1.70.0"
     }
 }

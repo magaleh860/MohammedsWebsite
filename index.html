@@ -1,3 +1,4 @@
+<!-- Template from bootstrap -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,20 +11,22 @@
 
     <title>Mohammed Morshid's website</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/img/header.jpg" as="image">
+    
+    <!-- Fonts with display=swap for better performance -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&display=swap' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic&display=swap' rel='stylesheet' type='text/css'>
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- Critical CSS to prevent FOUC (Flash of Unstyled Content) -->
+    <style>
+      body { opacity: 0; }
+      .loaded { opacity: 1; transition: opacity 0.3s; }
+      .masthead { min-height: 100vh; background-color: #212529; }
+    </style>
 
-    <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/creative.min.css" rel="stylesheet">
-
+    <!-- Vite entry point - moved to head for faster processing -->
+    <script type="module" crossorigin src="/js/main.js"></script>
   </head>
 
   <body id="page-top">
@@ -35,12 +38,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+        
+          <p id="underCons" ></p>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">My skills</a>
+              <a class="nav-link js-scroll-trigger" href="#languages">My skills</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#portfolio">My Portfolio</a>
@@ -64,7 +69,7 @@
           </div>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">In here you can see who I am, my current status, my skills, my portfolio, and my contacts</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">About me</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger sr-button" href="#about">About me</a>
           </div>
         </div>
       </div>
@@ -74,58 +79,129 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">* Looking for a full time position! *</h2>
+            <h2 class="section-heading text-white">About Me</h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4">Just graduated from University of California, Davis with a Bachelor in Science in Computer Science.</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">My skills</a>
+            <p class="text-faded mb-4">
+              Hi, my name is Mohammed. I am a full stack developer and have a background in managing small businesses. I love creating efficient solutions for technology problems, and I am excited to combine my business management background and software engineering experience to create innovative efficient solutions for businesses 
+            </p>
+            <p class="text-faded mb-4"></p>
+              My passion for programming started at the age of 14, when I made my first functional program. It was an interface to ease accessing to my media files using Actionscript and Flash MX program. I then started working on my family’s business where I got involved more on the hardware of computers. Once I got to college, I knew I had to major in something related to computers. I brainstormed going into hardware or software, and I chose going the software route because having the ability to create something tangible (a website or an app), from simple lines of codes always intrigued me. I then graduated from the Univeristy Of California, Davis with a BA degree in Computer Science. 
+            </p>
+            <p class="text-faded mb-4">
+              I've been working as a full stack developer for the past few years. I  developed software solutions for multi Billion dollar revenue clients. I participated  in all aspects of software development, from requirement gathering, establishing a development plan, to programming in the backend and the front end. Some of the technologies I worked with are Javascript, Vue 2, Vue 3, Vue CLI, Vite, Bootstrap, ColdFusion, node.js, SQLServer, Azure DevOps, Azure Cosmos and much more! I also participated in designing UIs.
+            </p>
+            <a class="btn btn-light btn-xl js-scroll-trigger sr-button" href="#languages">Programming Languages</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="services">
+    <section id="languages">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Languages I am familier with</h2>
+            <h2 class="section-heading">Languages and libraries I am familier with</h2>
             <hr class="my-4">
           </div>
         </div>
       </div>
-      <div class="container">
+      <div class="container"> 
         <div class="row">
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <img class="img-fluid-2" id="c" src="img/portfolio/thumbnails/c++.png" alt="">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">Javascript</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">Vue 2</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">Vue 3</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">Vuex</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">Vue-router</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">AG-Grid</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">Node.js</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">Bootstrap</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
+              <h3 class="mb-3">Chart.js</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="html" src="img/portfolio/thumbnails/coldFusion.png" alt=""> -->
+              <h3 class="mb-3">ColdFusion</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+              <div class="service-box mt-5 mx-auto">
+                <!-- <img class="img-fluid-2" id="html" src="img/portfolio/thumbnails/html.png" alt=""> -->
+                <h3 class="mb-3">HTML/css</h3>
+                <p class="text-muted mb-0"></p>
+              </div>
+            </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <img class="img-fluid-2" id="c" src="img/portfolio/thumbnails/c++.png" alt=""> -->
               <h3 class="mb-3">C/C++</h3>
               <p class="text-muted mb-0"></p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <img class="img-fluid-2" id="cc" src="img/portfolio/thumbnails/cc.png" alt="">
+              <!-- <img class="img-fluid-2" id="cc" src="img/portfolio/thumbnails/cc.png" alt=""> -->
               <h3 class="mb-3">C#</h3>
               <p class="text-muted mb-0"></p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <img class="img-fluid-2" id="java" src="img/portfolio/thumbnails/java.png" alt="">
+              <!-- <img class="img-fluid-2" id="java" src="img/portfolio/thumbnails/java.png" alt=""> -->
               <h3 class="mb-3">Java</h3>
-              <p class="text-muted mb-0"></p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <img class="img-fluid-2" id="html" src="img/portfolio/thumbnails/html.png" alt="">
-              <h3 class="mb-3">HTML/css</h3>
-              <p class="text-muted mb-0"></p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt="">
-              <h3 class="mb-3">Javascript</h3>
               <p class="text-muted mb-0"></p>
             </div>
           </div>
@@ -133,7 +209,8 @@
       </div>
     </section>
 
-    <section class="p-0" id="portfolio">
+    <section class="bg-dark text-white" id="portfolio">
+    <!-- <section class="p-0" id="portfolio"> -->
       <div class="container-fluid p-0">
         <div class="row no-gutters popup-gallery">
           <div class="col-lg-4 col-sm-6">
@@ -198,12 +275,10 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="bg-dark text-white">
+    
       <div class="container text-center">
         <h2 class="mb-4">Some of the projects I worked on</h2>
-        <a class="btn btn-light btn-xl sr-button" href=>Download Now!</a>
+        <!-- <a class="btn btn-light btn-xl sr-button" href=>Download Now!</a> -->
       </div>
     </section>
 
@@ -219,7 +294,7 @@
         <div class="row">
           <div class="col-lg-4 ml-auto text-center">
             <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-            <p>415-613-3626</p>
+            <p>315-400-2778</p>
           </div>
           <div class="col-lg-4 mr-auto text-center">
             <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
@@ -231,18 +306,10 @@
       </div>
     </section>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
-
+  <!-- Add loaded class to body once everything is ready -->
+  <script>
+    window.addEventListener('load', () => document.body.classList.add('loaded'));
+  </script>
   </body>
 
 </html>

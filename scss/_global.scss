@@ -1,3 +1,8 @@
+// Import mixins, variables and color functions
+@use 'mixins' as mix;
+@use 'variables' as *;
+@use 'sass:color';
+
 // Global styling for this template
 body,
 html {
@@ -6,7 +11,7 @@ html {
 }
 
 body {
-  @include serif-font;
+  @include mix.serif-font;
 }
 
 hr {
@@ -21,9 +26,9 @@ hr.light {
 
 a {
   color: $primary;
-  @include transition-all;
+  @include mix.transition-all;
   &:hover {
-    color: darken($primary, .1);
+    color: color.scale($primary, $lightness: -1%);
   }
 }
 
@@ -33,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  @include sans-serif-font;
+  @include mix.sans-serif-font;
 }
 
 .bg-primary {
@@ -45,7 +50,7 @@ h6 {
 }
 
 .text-faded {
-  color: fade-out($white, .3);
+  color: color.scale($white, $alpha: -30%);
 }
 
 section {
@@ -80,4 +85,9 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: $gray-900;
+}
+
+// Styling for the services section
+.service-box {
+  max-width: 400px;
 }
