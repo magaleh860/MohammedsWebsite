@@ -1,17 +1,21 @@
+@use 'mixins' as mix;
+@use 'variables' as *;
+@use 'sass:color';
+
 // Styling for the navbar
 #mainNav {
-  border-bottom: 1px solid fade-out($gray-900, .9);
+  border-bottom: 1px solid color.scale($gray-900, $alpha: -90%);
   background-color: $white;
-  @include sans-serif-font;
-  @include transition-all;
+  @include mix.serif-font;
+  @include mix.transition-all;
   .navbar-brand {
     font-weight: 700;
     text-transform: uppercase;
     color: $primary;
-    @include sans-serif-font;
+    @include mix.serif-font;
     &:focus,
     &:hover {
-      color: darken($primary, .1);
+      color: color.scale($primary, $lightness: -1%);
     }
   }
   .navbar-nav {
@@ -39,7 +43,7 @@
     border-color: transparent;
     background-color: transparent;
     .navbar-brand {
-      color: fade-out($white, .3);
+      color: color.scale($white, $alpha: -30%);
       &:focus,
       &:hover {
         color: $white;
