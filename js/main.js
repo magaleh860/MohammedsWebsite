@@ -1,6 +1,6 @@
 // Preload critical assets
 const preloadBackground = new Image();
-preloadBackground.src = '/img/header.jpg';
+preloadBackground.src = '/img/SUV4.gif';
 
 // Import vendor CSS from node_modules
 import 'bootstrap/dist/css/bootstrap.min.css';

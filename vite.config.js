@@ -3,6 +3,7 @@ const path = require('path');
 
 // Vite config for static site with SCSS and vendor libs
 module.exports = defineConfig({
+  server: { host: '127.0.0.1' /*true*/, port: 5173, strictPort: true },
   base: './',
   build: {
     outDir: 'dist',

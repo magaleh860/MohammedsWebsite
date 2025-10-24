@@ -49,6 +49,10 @@ h6 {
   background-color: $gray-900 !important;
 }
 
+.bg-secondary {
+  background-color: $secondary !important;
+}
+
 .text-faded {
   color: color.scale($white, $alpha: -30%);
 }
@@ -84,7 +88,7 @@ img::-moz-selection {
 }
 
 body {
-  -webkit-tap-highlight-color: $gray-900;
+  -webkit-tap-highlight-color: white;
 }
 
 // Styling for the services section

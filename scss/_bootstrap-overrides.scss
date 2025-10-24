@@ -19,17 +19,32 @@
   padding: 1rem 2rem;
 }
 
+// .btn-primary {
+//   background-color: $primary;
+//   border-color: $primary;
+//   &:hover,
+//   &:focus,
+//   &:active {
+//     color: $white;
+//     background-color: color.scale($primary, $lightness: -5%) !important;
+//   }
+//   &:active,
+//   &:focus {
+//     box-shadow: 0 0 0 0.2rem color.adjust($primary, $alpha: -0.5) !important;
+//   }
+// }
+
 .btn-primary {
-  background-color: $primary;
-  border-color: $primary;
+  background-color: $secondary;
+  border-color: $secondary;
   &:hover,
   &:focus,
   &:active {
     color: $white;
-    background-color: color.scale($primary, $lightness: -5%) !important;
+    background-color: color.scale($secondary, $lightness: -5%) !important;
   }
   &:active,
   &:focus {
-    box-shadow: 0 0 0 0.2rem color.adjust($primary, $alpha: -0.5) !important;
+    box-shadow: 0 0 0 0.2rem color.adjust($secondary, $alpha: -0.5) !important;
   }
 }
