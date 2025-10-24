@@ -1,7 +1,7 @@
 {
     "title": "MohammedsWebsite",
     "name": "mohammeds-website",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "description": "Mohammed's personal website",
     "scripts": {
         "dev": "vite",
