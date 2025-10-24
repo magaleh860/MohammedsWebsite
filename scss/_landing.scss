@@ -2,6 +2,11 @@
 @use 'variables' as *;
 
 // Styling for the masthead
+
+    // Critical CSS to prevent FOUC (Flash of Unstyled Content)
+body { opacity: 0; }
+.loaded { opacity: 1; transition: opacity 0.3s; }
+.masthead { min-height: 100vh; background-color: #212529; }
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
