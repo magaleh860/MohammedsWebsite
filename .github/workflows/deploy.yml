@@ -1,0 +1,30 @@
+name: Build & Deploy to User Site
+
+on:
+  push:
+    branches: [ main ]   # change if your default branch is master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy dist/ to magaleh860.github.io
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: magaleh860/magaleh860.github.io
+          branch: master              # or main, match the repo
+          folder: dist
+          clean: true
+          token: ${{ secrets.DEPLOY_TOKEN }}
