@@ -2,7 +2,7 @@ name: Build & Deploy to User Site
 
 on:
   push:
-    branches: [ main ]   # change if your default branch is master
+    branches: [ master ]   # change if your default branch is master
 
 jobs:
   build-deploy:
