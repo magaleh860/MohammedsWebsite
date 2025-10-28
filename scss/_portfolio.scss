@@ -2,6 +2,11 @@
 @use 'variables' as *;
 @use 'sass:color';
 
+
+#portfolio {
+  background: $primary;
+
+}
 // Styling for the portfolio section
 .portfolio-box {
   position: relative;
