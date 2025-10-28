@@ -1,8 +1,13 @@
 @use 'mixins' as mix;
 @use 'variables' as *;
 
-// #languages {
-//   background-image: url('../img/cwgf.gif');
-//   background-position: center center;
-//   @include mix.background-cover;
-// }
+#languages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#languages * {
+  color: $white;
+  border-color: $white;
+}

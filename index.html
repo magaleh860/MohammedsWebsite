@@ -59,7 +59,8 @@
     </nav>
 
     <header class="masthead text-center text-white d-flex">
-      <div class="container my-auto">
+      <div class="position-absolute w-100 h-100 bg-dark opacity-70"></div>
+      <div class="container d-flex align-items-center flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
@@ -90,23 +91,23 @@
             <p class="text-faded mb-4">
               I've been working as a full stack developer for the past few years. I  developed software solutions for multi Billion dollar revenue clients. I participated  in all aspects of software development, from requirement gathering, establishing a development plan, to programming in the backend and the front end. Some of the technologies I worked with are Javascript, Vue 2, Vue 3, Vue CLI, Vite, Bootstrap, ColdFusion, node.js, SQLServer, Azure DevOps, Azure Cosmos and much more! I also participated in designing UIs.
             </p>
-            <a class="btn btn-light btn-xl js-scroll-trigger sr-button" href="#languages">Programming Languages</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger sr-button" href="#languages">Programming Languages</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="languages">
+    <section id="languages" class="bg-dark">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Languages and libraries I am familier with</h2>
+            <h2 class="section-heading">Languages and libraries I am experienced in</h2>
             <hr class="my-4">
           </div>
         </div>
       </div>
       <div class="container"> 
-        <div class="row">
+        <div class="row  d-flex justify-content-center align-items-center">
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <!-- <img class="img-fluid-2" id="javascript" src="img/portfolio/thumbnails/javascript.jpg" alt=""> -->
@@ -171,13 +172,6 @@
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <!-- <img class="img-fluid-2" id="html" src="img/portfolio/thumbnails/coldFusion.png" alt=""> -->
-              <h3 class="mb-3">ColdFusion</h3>
-              <p class="text-muted mb-0"></p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
               <div class="service-box mt-5 mx-auto">
                 <!-- <img class="img-fluid-2" id="html" src="img/portfolio/thumbnails/html.png" alt=""> -->
                 <h3 class="mb-3">HTML/css</h3>
@@ -209,7 +203,11 @@
       </div>
     </section>
 
-    <section class="bg-dark text-white" id="portfolio">
+    <section class="text-white" id="portfolio">
+      <div class="container text-center">
+        <h2 class="mb-4">Some of the projects I worked on</h2>
+        <!-- <a class="btn btn-light btn-xl sr-button" href=>Download Now!</a> -->
+      </div>
     <!-- <section class="p-0" id="portfolio"> -->
       <div class="container-fluid p-0">
         <div class="row no-gutters popup-gallery">
@@ -275,29 +273,24 @@
           </div>
         </div>
       </div>
-    
-      <div class="container text-center">
-        <h2 class="mb-4">Some of the projects I worked on</h2>
-        <!-- <a class="btn btn-light btn-xl sr-button" href=>Download Now!</a> -->
-      </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="bg-dark">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Let's Get In Touch!</h2>
+            <h2 class="section-heading text-white">Let's Get In Touch!</h2>
             <hr class="my-4">
-            <p class="mb-5">Please do not histate to contact me in regards of anything!</p>
+            <p class="mb-5 text-white">Please do not histate to contact me in regards of anything!</p>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 ml-auto text-center">
-            <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-            <p>315-400-2778</p>
+            <i class="fa fa-phone fa-3x mb-3 sr-contact color-secondary"></i>
+            <p class="text-white">315-400-2778</p>
           </div>
           <div class="col-lg-4 mr-auto text-center">
-            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact color-secondary"></i>
             <p>
               <a href="mailto:your-email@your-domain.com">magaleh860@gmail.com</a>
             </p>

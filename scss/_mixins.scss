@@ -16,3 +16,8 @@
 @mixin serif-font() {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
+
+@mixin bg-black() {
+  background-color: #000 !important;
+  opacity: 0.8;
+}

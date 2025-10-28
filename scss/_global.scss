@@ -46,7 +46,15 @@ h6 {
 }
 
 .bg-dark {
-  background-color: $gray-900 !important;
+  background-color: $black !important;
+}
+
+.opacity-70 {
+  opacity: 0.7 !important;
+}
+
+.opacity-80 {
+  opacity: 0.8 !important;
 }
 
 .bg-secondary {
@@ -94,4 +102,8 @@ body {
 // Styling for the services section
 .service-box {
   max-width: 400px;
+}
+
+.color-secondary {
+  color: $secondary;
 }
