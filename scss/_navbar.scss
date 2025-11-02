@@ -4,18 +4,31 @@
 
 // Styling for the navbar
 #mainNav {
-  border-bottom: 1px solid color.scale($gray-900, $alpha: -90%);
-  background-color: $white;
+  border-bottom: none; // Remove border that might cause gap
+  background-color: $primary;
   @include mix.serif-font;
   @include mix.transition-all;
+  min-height: 72px; // Consistent navbar height
+  margin-bottom: 0; // Ensure no margin
+  
+  .navbar-toggler {
+    border-color: rgba($white, 0.3);
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($white, 0.25);
+    }
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
   .navbar-brand {
     font-weight: 700;
     text-transform: uppercase;
-    color: $primary;
+    color: $white;
     @include mix.serif-font;
     &:focus,
     &:hover {
-      color: color.scale($primary, $lightness: -1%);
+      color: color.scale($white, $alpha: -20%);
     }
   }
   .navbar-nav {
@@ -25,15 +38,16 @@
         font-size: .9rem;
         font-weight: 700;
         text-transform: uppercase;
-        color: $gray-900;
+        color: $white;
         &:hover {
-          color: $primary;
+          color: color.scale($white, $alpha: -20%);
         }
         &.active {
-          color: $primary !important;
+          color: #8d8d8d !important;
           background-color: transparent;
           &:hover {
             background-color: transparent;
+            color: #8d8d8d !important;
           }
         }
       }
