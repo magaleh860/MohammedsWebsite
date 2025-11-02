@@ -77,7 +77,7 @@ window.ScrollReveal = ScrollReveal;
   // Magnific popup calls (ensure the plugin exists)
   if ($.fn && $.fn.magnificPopup) {
     $('.popup-gallery').magnificPopup({
-      delegate: 'a',
+      delegate: 'a.portfolio-box, a.portfolio-lightbox',
       type: 'image',
       tLoading: 'Loading image #%curr%...',
       mainClass: 'mfp-img-mobile',
