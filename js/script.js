@@ -17,6 +17,77 @@ window.ScrollReveal = ScrollReveal;
 (function($) {
   "use strict"; // Start of use strict
 
+  // Variable to store skills data loaded from JSON
+  let skillsData = [];
+
+  // Utility function to generate skill card HTML
+  function generateSkillCard(skill) {
+    return `
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="skill-card sr-skill" data-delay="${skill.delay}">
+          <div class="skill-card-inner">
+            <div class="skill-card-front">
+              <div class="skill-title-row">
+                <div class="skill-icon">
+                  <i class="${skill.icon}"></i>
+                </div>
+                <h4>${skill.name}</h4>
+              </div>
+              <span class="badge badge-${skill.level}">${skill.level.charAt(0).toUpperCase() + skill.level.slice(1)}</span>
+            </div>
+            <div class="skill-card-back">
+              <h5>${skill.backTitle}</h5>
+              <p>${skill.experience}</p>
+              <ul>
+                ${skill.skills.map(s => `<li>${s}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Function to load skills data from JSON file
+  async function loadSkillsData() {
+    try {
+      const response = await fetch('/js/skills-data.json');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      skillsData = await response.json();
+    } catch (error) {
+      console.error('Error loading skills data:', error);
+      skillsData = []; // fallback to empty array
+    }
+  }
+
+  // Generate skills cards dynamically
+  async function initializeSkills() {
+    const skillsContainer = document.getElementById('skills-container');
+    
+    if (skillsContainer) {
+      // Load skills data if not already loaded
+      if (skillsData.length === 0) {
+        await loadSkillsData();
+      }
+      
+      const skillsHTML = skillsData.map(generateSkillCard).join('');
+      skillsContainer.innerHTML = skillsHTML;
+      
+      // Animate cards in with a staggered effect
+      setTimeout(() => {
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('revealed');
+            card.setAttribute('style', 'opacity: 1 !important; transform: translateY(0) !important; transition: all 0.6s ease !important;');
+          }, index * 100); // Stagger each card by 100ms
+        });
+      }, 100);
+    }
+  }
+
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -58,11 +129,6 @@ window.ScrollReveal = ScrollReveal;
   // Scroll reveal calls
   if (window.ScrollReveal) {
     window.sr = window.ScrollReveal();
-    sr.reveal('.sr-icons', {
-      duration: 600,
-      scale: 0.3,
-      distance: '0px'
-    }, 200);
     sr.reveal('.sr-button', {
       duration: 1000,
       delay: 200
@@ -72,19 +138,6 @@ window.ScrollReveal = ScrollReveal;
       scale: 0.3,
       distance: '0px'
     }, 300);
-    
-    // Staggered skill card animations
-    sr.reveal('.sr-skill', {
-      duration: 800,
-      distance: '50px',
-      origin: 'bottom',
-      scale: 0.9,
-      opacity: 0,
-      interval: 100,
-      beforeReveal: function(el) {
-        el.classList.add('revealed');
-      }
-    });
   }
   
   // Alternative fallback for skill cards if ScrollReveal isn't available
@@ -115,6 +168,13 @@ window.ScrollReveal = ScrollReveal;
       }
     });
   }
+
+  // Initialize skills when DOM is ready
+  $(document).ready(async function() {
+    console.log('Initializing skills...');
+    await initializeSkills();
+    console.log('Skills initialized');
+  });
 
 })(jQuery); // End of use strict
 
