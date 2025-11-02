@@ -72,6 +72,30 @@ window.ScrollReveal = ScrollReveal;
       scale: 0.3,
       distance: '0px'
     }, 300);
+    
+    // Staggered skill card animations
+    sr.reveal('.sr-skill', {
+      duration: 800,
+      distance: '50px',
+      origin: 'bottom',
+      scale: 0.9,
+      opacity: 0,
+      interval: 100,
+      beforeReveal: function(el) {
+        el.classList.add('revealed');
+      }
+    });
+  }
+  
+  // Alternative fallback for skill cards if ScrollReveal isn't available
+  else {
+    $(document).ready(function() {
+      $('.skill-card').each(function(index) {
+        $(this).delay(index * 100).animate({
+          opacity: 1
+        }, 600).addClass('revealed');
+      });
+    });
   }
 
   // Magnific popup calls (ensure the plugin exists)
