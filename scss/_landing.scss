@@ -8,8 +8,7 @@ body { opacity: 0; }
 .loaded { opacity: 1; transition: opacity 0.3s; }
 .masthead { min-height: 100vh; background-color: #212529; }
 header.masthead {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 56px);
+  padding-bottom: 0; // Remove bottom padding to eliminate gap
   background-image: url('../img/SUV4.gif');
   background-position: center center;
   @include mix.background-cover;

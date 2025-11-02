@@ -1,0 +1,327 @@
+@use 'mixins' as mix;
+@use 'variables' as *;
+@use 'sass:color';
+
+// Skills section styling
+#languages {
+  padding: 80px 0;
+  
+  .section-heading {
+    margin-bottom: 1rem;
+  }
+}
+
+// Skill card container
+.skill-card {
+  perspective: 1000px;
+  height: 200px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  
+  &:hover .skill-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  // Add subtle entrance animation
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 3D flip container
+.skill-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+// Front and back face base styles
+.skill-card-front,
+.skill-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+// Front face styling
+.skill-card-front {
+  background: linear-gradient(135deg, 
+    color.scale($primary, $lightness: 10%) 0%, 
+    $primary 100%
+  );
+  color: $white;
+  border: 2px solid color.scale($primary, $lightness: 20%);
+  text-align: center;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .skill-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    @include mix.serif-font;
+  }
+}
+
+// Back face styling
+.skill-card-back {
+  background: linear-gradient(135deg, 
+    color.scale($secondary, $lightness: 10%) 0%, 
+    $secondary 100%
+  );
+  color: $white;
+  transform: rotateY(180deg);
+  border: 2px solid color.scale($secondary, $lightness: 20%);
+  text-align: center;
+  
+  h5 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    @include mix.serif-font;
+  }
+  
+  p {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    opacity: 0.9;
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 180px;
+    margin: 0 auto;
+    
+    li {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      padding-left: 18px;
+      position: relative;
+      
+      &:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: color.scale($secondary, $lightness: 30%);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Skill icons
+.skill-icon {
+  font-size: 3.5rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  
+  i {
+    color: $white;
+    transition: all 0.3s ease;
+    
+    // Icon-specific colors
+    &.fa-js-square {
+      color: #f7df1e;
+    }
+    
+    &.fa-vuejs {
+      color: #4fc08d;
+    }
+    
+    &.fa-node-js {
+      color: #68a063;
+    }
+    
+    &.fa-react {
+      color: #61dafb;
+    }
+    
+    &.fa-html5 {
+      color: #e34f26;
+    }
+    
+    &.fa-bootstrap {
+      color: #7952b3;
+    }
+    
+    &.fa-microsoft {
+      color: #00bcf2;
+    }
+    
+    &.fa-java {
+      color: #ed8b00;
+    }
+  }
+  
+  // Rotating animation on hover
+  .skill-card:hover & {
+    transform: rotateY(360deg);
+  }
+}
+
+// Proficiency badges
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: fit-content;
+  
+  &.badge-expert {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: $white;
+    border-color: #28a745;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  }
+  
+  &.badge-advanced {
+    background: linear-gradient(45deg, #ffc107, #fd7e14);
+    color: $white;
+    border-color: #ffc107;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+  }
+  
+  &.badge-intermediate {
+    background: linear-gradient(45deg, #17a2b8, #6f42c1);
+    color: $white;
+    border-color: #17a2b8;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.3);
+  }
+  
+  &.badge-beginner {
+    background: linear-gradient(45deg, #6c757d, #495057);
+    color: $white;
+    border-color: #6c757d;
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .skill-card {
+    height: 180px;
+    margin-bottom: 20px;
+  }
+  
+  .skill-icon {
+    font-size: 2.8rem;
+  }
+  
+  .skill-card-front {
+    .skill-title-row {
+      gap: 10px;
+    }
+    
+    h4 {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .skill-card-back {
+    h5 {
+      font-size: 1rem;
+    }
+    
+    p {
+      font-size: 0.8rem;
+    }
+    
+    ul {
+      max-width: 160px;
+      
+      li {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .skill-card {
+    height: 160px;
+  }
+  
+  .skill-icon {
+    font-size: 2.2rem;
+  }
+  
+  .skill-card-front {
+    .skill-title-row {
+      gap: 8px;
+      flex-direction: column;
+    }
+    
+    h4 {
+      font-size: 1rem;
+    }
+  }
+  
+  .skill-card-front,
+  .skill-card-back {
+    padding: 15px;
+  }
+  
+  .skill-card-back ul {
+    max-width: 140px;
+  }
+}
+
+// Core Strengths Section
+.strength-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+  padding: 30px 20px;
+  
+  .strength-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover .strength-icon {
+    transform: scale(1.1);
+  }
+}

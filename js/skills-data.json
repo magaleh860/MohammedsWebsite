@@ -1,0 +1,113 @@
+[
+  {
+    "name": "Vue.js",
+    "icon": "fab fa-vuejs",
+    "level": "expert",
+    "experience": "Professional experience",
+    "delay": 0,
+    "backTitle": "Vue.js 2 & 3",
+    "skills": [
+      "Composition API",
+      "Vuex and Pinia state management",
+      "Experience migrating apps from Vue 2 to Vue 3"
+    ]
+  },
+  {
+    "name": "React.js",
+    "icon": "fab fa-react",
+    "level": "advanced",
+    "experience": "Professional experience",
+    "delay": 100,
+    "backTitle": "ReactJS",
+    "skills": [
+      "Hooks & Context",
+      "Component lifecycle",
+      "State management"
+    ]
+  },
+  {
+    "name": "TypeScript",
+    "icon": "fab fa-js-square",
+    "level": "advanced",
+    "experience": "Professional experience",
+    "delay": 200,
+    "backTitle": "TypeScript",
+    "skills": [
+      "Type safety",
+      "Interface design",
+      "Generic programming",
+      "ES6+ features"
+    ]
+  },
+  {
+    "name": ".NET",
+    "icon": "fab fa-microsoft",
+    "level": "advanced",
+    "experience": "Professional experience",
+    "delay": 300,
+    "backTitle": ".NET Framework",
+    "skills": [
+      "C# development",
+      "ASP.NET Core",
+      "Entity Framework"
+    ]
+  },
+  {
+    "name": "Node.js",
+    "icon": "fab fa-node-js",
+    "level": "expert",
+    "experience": "Professional experience",
+    "delay": 400,
+    "backTitle": "Node.js & Nest.js",
+    "skills": [
+      "Express.js",
+      "Nest.js framework",
+      "API development",
+      "Microservices"
+    ]
+  },
+  {
+    "name": "CSS Frameworks",
+    "icon": "fab fa-css3-alt",
+    "level": "expert",
+    "experience": "Professional experience",
+    "delay": 500,
+    "backTitle": "CSS & Frameworks",
+    "skills": [
+      "Bootstrap",
+      "Tailwind CSS",
+      "CSS3 advanced",
+      "Responsive design",
+      "Kendo UI"
+    ]
+  },
+  {
+    "name": "Azure Cloud",
+    "icon": "fab fa-microsoft",
+    "level": "advanced",
+    "experience": "Professional experience",
+    "delay": 600,
+    "backTitle": "Azure Services",
+    "skills": [
+      "Azure Functions",
+      "CosmosDB",
+      "Cloud architecture",
+      "Serverless computing"
+    ]
+  },
+  {
+    "name": "Data & APIs",
+    "icon": "fas fa-database",
+    "level": "advanced",
+    "experience": "Professional experience",
+    "delay": 700,
+    "backTitle": "Data & Integration",
+    "skills": [
+      "MS SQL Server",
+      "Cosmos DB",
+      "Esri ArcGIS JS API",
+      "Ag-Grid",
+      "Chart.js"
+    ]
+  }
+]

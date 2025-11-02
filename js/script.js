@@ -17,6 +17,107 @@ window.ScrollReveal = ScrollReveal;
 (function($) {
   "use strict"; // Start of use strict
 
+  // Variables to store data loaded from JSON
+  let skillsData = [];
+  let coreStrengthsData = [];
+
+  // Utility function to generate skill card HTML
+  function generateSkillCard(skill) {
+    return `
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="skill-card sr-skill" data-delay="${skill.delay}">
+          <div class="skill-card-inner">
+            <div class="skill-card-front">
+              <div class="skill-title-row">
+                <div class="skill-icon">
+                  <i class="${skill.icon}"></i>
+                </div>
+                <h4>${skill.name}</h4>
+              </div>
+              <span class="badge badge-${skill.level}">${skill.level.charAt(0).toUpperCase() + skill.level.slice(1)}</span>
+            </div>
+            <div class="skill-card-back">
+              <h5>${skill.backTitle}</h5>
+              <p>${skill.experience}</p>
+              <ul>
+                ${skill.skills.map(s => `<li>${s}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Function to load skills data from JSON file
+  async function loadSkillsData() {
+    try {
+      const response = await fetch('/js/skills-data.json');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      skillsData = await response.json();
+    } catch (error) {
+      console.error('Error loading skills data:', error);
+      skillsData = []; // fallback to empty array
+    }
+  }
+
+  // Function to load core strengths data from JSON file
+  async function loadCoreStrengthsData() {
+    try {
+      const response = await fetch('/js/core-strengths.json');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      coreStrengthsData = await response.json();
+    } catch (error) {
+      console.error('Error loading core strengths data:', error);
+      coreStrengthsData = []; // fallback to empty array
+    }
+  }
+
+  // Utility function to generate core strength card HTML
+  function generateStrengthCard(strength) {
+    return `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="strength-card text-center" data-delay="${strength.delay}">
+          <div class="strength-icon mb-3">
+            <i class="${strength.icon} fa-3x text-white"></i>
+          </div>
+          <h4 class="text-white mb-3">${strength.name}</h4>
+          <p class="text-white-50">${strength.description}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  // Generate skills cards dynamically
+  async function initializeSkills() {
+    const skillsContainer = document.getElementById('skills-container');
+    
+    if (skillsContainer) {
+      // Load skills data if not already loaded
+      if (skillsData.length === 0) {
+        await loadSkillsData();
+      }
+      
+      const skillsHTML = skillsData.map(generateSkillCard).join('');
+      skillsContainer.innerHTML = skillsHTML;
+      
+      // Animate cards in with a staggered effect
+      setTimeout(() => {
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('revealed');
+            card.setAttribute('style', 'opacity: 1 !important; transform: translateY(0) !important; transition: all 0.6s ease !important;');
+          }, index * 100); // Stagger each card by 100ms
+        });
+      }, 100);
+    }
+  }
+
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -58,11 +159,6 @@ window.ScrollReveal = ScrollReveal;
   // Scroll reveal calls
   if (window.ScrollReveal) {
     window.sr = window.ScrollReveal();
-    sr.reveal('.sr-icons', {
-      duration: 600,
-      scale: 0.3,
-      distance: '0px'
-    }, 200);
     sr.reveal('.sr-button', {
       duration: 1000,
       delay: 200
@@ -72,6 +168,17 @@ window.ScrollReveal = ScrollReveal;
       scale: 0.3,
       distance: '0px'
     }, 300);
+  }
+  
+  // Alternative fallback for skill cards if ScrollReveal isn't available
+  else {
+    $(document).ready(function() {
+      $('.skill-card').each(function(index) {
+        $(this).delay(index * 100).animate({
+          opacity: 1
+        }, 600).addClass('revealed');
+      });
+    });
   }
 
   // Magnific popup calls (ensure the plugin exists)
@@ -91,6 +198,43 @@ window.ScrollReveal = ScrollReveal;
       }
     });
   }
+
+  // Generate core strengths dynamically
+  async function initializeCoreStrengths() {
+    const strengthsContainer = document.getElementById('strengths-container');
+    
+    if (strengthsContainer) {
+      // Load core strengths data if not already loaded
+      if (coreStrengthsData.length === 0) {
+        await loadCoreStrengthsData();
+      }
+      
+      const strengthsHTML = coreStrengthsData.map(generateStrengthCard).join('');
+      strengthsContainer.innerHTML = strengthsHTML;
+      
+      // Animate cards in with a staggered effect
+      setTimeout(() => {
+        const strengthCards = document.querySelectorAll('.strength-card');
+        strengthCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+            card.style.transition = 'all 0.6s ease';
+          }, index * 150); // Stagger each card by 150ms
+        });
+      }, 100);
+    }
+  }
+
+  // Initialize both skills and core strengths when DOM is ready
+  $(document).ready(async function() {
+    console.log('Initializing skills and core strengths...');
+    await Promise.all([
+      initializeSkills(),
+      initializeCoreStrengths()
+    ]);
+    console.log('Skills and core strengths initialized');
+  });
 
 })(jQuery); // End of use strict
 
