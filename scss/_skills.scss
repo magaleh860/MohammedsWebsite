@@ -309,3 +309,19 @@
     max-width: 140px;
   }
 }
+
+// Core Strengths Section
+.strength-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+  padding: 30px 20px;
+  
+  .strength-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover .strength-icon {
+    transform: scale(1.1);
+  }
+}

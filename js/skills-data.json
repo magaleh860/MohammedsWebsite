@@ -96,24 +96,11 @@
     ]
   },
   {
-    "name": "Leadership",
-    "icon": "fas fa-users",
-    "level": "expert",
-    "experience": "Core strength",
-    "delay": 700,
-    "backTitle": "Core Strengths",
-    "skills": [
-      "Product Ownership",
-      "System Architecture",
-      "Mentorship"
-    ]
-  },
-  {
     "name": "Data & APIs",
     "icon": "fas fa-database",
     "level": "advanced",
     "experience": "Professional experience",
-    "delay": 800,
+    "delay": 700,
     "backTitle": "Data & Integration",
     "skills": [
       "MS SQL Server",

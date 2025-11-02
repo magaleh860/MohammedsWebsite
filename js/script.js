@@ -17,8 +17,9 @@ window.ScrollReveal = ScrollReveal;
 (function($) {
   "use strict"; // Start of use strict
 
-  // Variable to store skills data loaded from JSON
+  // Variables to store data loaded from JSON
   let skillsData = [];
+  let coreStrengthsData = [];
 
   // Utility function to generate skill card HTML
   function generateSkillCard(skill) {
@@ -60,6 +61,35 @@ window.ScrollReveal = ScrollReveal;
       console.error('Error loading skills data:', error);
       skillsData = []; // fallback to empty array
     }
+  }
+
+  // Function to load core strengths data from JSON file
+  async function loadCoreStrengthsData() {
+    try {
+      const response = await fetch('/js/core-strengths.json');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      coreStrengthsData = await response.json();
+    } catch (error) {
+      console.error('Error loading core strengths data:', error);
+      coreStrengthsData = []; // fallback to empty array
+    }
+  }
+
+  // Utility function to generate core strength card HTML
+  function generateStrengthCard(strength) {
+    return `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="strength-card text-center" data-delay="${strength.delay}">
+          <div class="strength-icon mb-3">
+            <i class="${strength.icon} fa-3x text-white"></i>
+          </div>
+          <h4 class="text-white mb-3">${strength.name}</h4>
+          <p class="text-white-50">${strength.description}</p>
+        </div>
+      </div>
+    `;
   }
 
   // Generate skills cards dynamically
@@ -169,11 +199,41 @@ window.ScrollReveal = ScrollReveal;
     });
   }
 
-  // Initialize skills when DOM is ready
+  // Generate core strengths dynamically
+  async function initializeCoreStrengths() {
+    const strengthsContainer = document.getElementById('strengths-container');
+    
+    if (strengthsContainer) {
+      // Load core strengths data if not already loaded
+      if (coreStrengthsData.length === 0) {
+        await loadCoreStrengthsData();
+      }
+      
+      const strengthsHTML = coreStrengthsData.map(generateStrengthCard).join('');
+      strengthsContainer.innerHTML = strengthsHTML;
+      
+      // Animate cards in with a staggered effect
+      setTimeout(() => {
+        const strengthCards = document.querySelectorAll('.strength-card');
+        strengthCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+            card.style.transition = 'all 0.6s ease';
+          }, index * 150); // Stagger each card by 150ms
+        });
+      }, 100);
+    }
+  }
+
+  // Initialize both skills and core strengths when DOM is ready
   $(document).ready(async function() {
-    console.log('Initializing skills...');
-    await initializeSkills();
-    console.log('Skills initialized');
+    console.log('Initializing skills and core strengths...');
+    await Promise.all([
+      initializeSkills(),
+      initializeCoreStrengths()
+    ]);
+    console.log('Skills and core strengths initialized');
   });
 
 })(jQuery); // End of use strict
