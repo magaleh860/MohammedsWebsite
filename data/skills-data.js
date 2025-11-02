@@ -1,4 +1,5 @@
-[
+// Skills data for the portfolio website
+export const skillsData = [
   {
     "name": "Vue.js",
     "icon": "fab fa-vuejs",
@@ -110,4 +111,4 @@
       "Chart.js"
     ]
   }
-]
+];

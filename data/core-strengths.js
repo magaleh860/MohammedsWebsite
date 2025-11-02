@@ -1,4 +1,5 @@
-[
+// Core strengths data for the portfolio website
+export const coreStrengthsData = [
   {
     "name": "Product Ownership",
     "icon": "fas fa-users-cog",
@@ -29,4 +30,4 @@
     "description": "Quickly translating ideas into functional prototypes to validate concepts and accelerate development cycles.",
     "delay": 400
   }
-]
+];

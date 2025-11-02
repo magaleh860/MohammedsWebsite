@@ -12,14 +12,12 @@ import $ from 'jquery';
 window.jQuery = window.$ = $;
 
 import ScrollReveal from 'scrollreveal';
+import { skillsData } from '../data/skills-data.js';
+import { coreStrengthsData } from '../data/core-strengths.js';
 
 window.ScrollReveal = ScrollReveal;
 (function($) {
   "use strict"; // Start of use strict
-
-  // Variables to store data loaded from JSON
-  let skillsData = [];
-  let coreStrengthsData = [];
 
   // Utility function to generate skill card HTML
   function generateSkillCard(skill) {
@@ -49,33 +47,7 @@ window.ScrollReveal = ScrollReveal;
     `;
   }
 
-  // Function to load skills data from JSON file
-  async function loadSkillsData() {
-    try {
-      const response = await fetch('/js/skills-data.json');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      skillsData = await response.json();
-    } catch (error) {
-      console.error('Error loading skills data:', error);
-      skillsData = []; // fallback to empty array
-    }
-  }
-
-  // Function to load core strengths data from JSON file
-  async function loadCoreStrengthsData() {
-    try {
-      const response = await fetch('/js/core-strengths.json');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      coreStrengthsData = await response.json();
-    } catch (error) {
-      console.error('Error loading core strengths data:', error);
-      coreStrengthsData = []; // fallback to empty array
-    }
-  }
+  // Data is now imported directly from JS modules, no need for async loading
 
   // Utility function to generate core strength card HTML
   function generateStrengthCard(strength) {
@@ -93,15 +65,10 @@ window.ScrollReveal = ScrollReveal;
   }
 
   // Generate skills cards dynamically
-  async function initializeSkills() {
+  function initializeSkills() {
     const skillsContainer = document.getElementById('skills-container');
     
     if (skillsContainer) {
-      // Load skills data if not already loaded
-      if (skillsData.length === 0) {
-        await loadSkillsData();
-      }
-      
       const skillsHTML = skillsData.map(generateSkillCard).join('');
       skillsContainer.innerHTML = skillsHTML;
       
@@ -200,15 +167,10 @@ window.ScrollReveal = ScrollReveal;
   }
 
   // Generate core strengths dynamically
-  async function initializeCoreStrengths() {
+  function initializeCoreStrengths() {
     const strengthsContainer = document.getElementById('strengths-container');
     
     if (strengthsContainer) {
-      // Load core strengths data if not already loaded
-      if (coreStrengthsData.length === 0) {
-        await loadCoreStrengthsData();
-      }
-      
       const strengthsHTML = coreStrengthsData.map(generateStrengthCard).join('');
       strengthsContainer.innerHTML = strengthsHTML;
       
@@ -227,12 +189,10 @@ window.ScrollReveal = ScrollReveal;
   }
 
   // Initialize both skills and core strengths when DOM is ready
-  $(document).ready(async function() {
+  $(document).ready(function() {
     console.log('Initializing skills and core strengths...');
-    await Promise.all([
-      initializeSkills(),
-      initializeCoreStrengths()
-    ]);
+    initializeSkills();
+    initializeCoreStrengths();
     console.log('Skills and core strengths initialized');
   });
 
