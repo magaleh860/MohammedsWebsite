@@ -70,3 +70,50 @@
     }
   }
 }
+
+// Layered interaction styles for portfolio items with external links
+.portfolio-lightbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+}
+
+// Caption sits above the lightbox layer but lets clicks pass through,
+// except for actual links which remain clickable
+.portfolio-box-caption {
+  z-index: 2;
+  pointer-events: none;
+  
+  a {
+    pointer-events: auto;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    
+    &:hover {
+      color: $white;
+      text-decoration-color: $secondary;
+    }
+  }
+}
+
+// Keep long URLs from spilling and ensure proper wrapping
+.project-links {
+  margin-top: 15px;
+  
+  a {
+    word-break: break-word;
+    white-space: normal;
+  }
+  
+  p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
