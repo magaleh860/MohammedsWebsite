@@ -60,20 +60,26 @@
       }
     }
     &.navbar-shrink {
-      border-bottom: 1px solid fade-out($gray-900, .9);
-      background-color: $white;
+      border-bottom: 1px solid fade-out($primary, .8);
+      background-color: $primary;
       .navbar-brand {
-        color: $primary;
+        color: $white;
         &:focus,
         &:hover {
-          color: darken($primary, .1);
+          color: color.scale($white, $alpha: -20%);
         }
       }
       .navbar-nav > li.nav-item > a.nav-link,
       .navbar-nav > li.nav-item > a.nav-link:focus {
-        color: $gray-900;
+        color: $white;
         &:hover {
-          color: $primary;
+          color: color.scale($white, $alpha: -20%);
+        }
+        &.active {
+          color: #8d8d8d !important; // Gold color for better contrast
+          &:hover {
+            color: #8d8d8d !important; // Lighter gold on hover
+          }
         }
       }
     }
